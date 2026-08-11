@@ -75,7 +75,7 @@
         }
         :root {
             --bg: #0a0f18;
-            --card: rgba(13, 17, 23, 0.7);
+            --card: rgba(13, 17, 23, 0.28);
             --text: #c9d1d9;
             --accent: #64ffda;
             --border: rgba(100, 255, 218, 0.12);
@@ -118,14 +118,14 @@
             cursor: pointer;
             list-style: none;
             color: var(--text);
-            padding: 0.4rem 0.8rem;
+            padding: 0.5rem 1rem;
             border: 1px solid var(--border);
-            border-radius: 6px;
+            border-radius: 10px;
             display: inline-flex;
             align-items: center;
             gap: 0.4rem;
-            background: rgba(13, 17, 23, 0.6);
-            backdrop-filter: blur(6px);
+            background: var(--card);
+            backdrop-filter: blur(12px);
         }
         .lang-switch summary::-webkit-details-marker {
             display: none;
@@ -164,11 +164,18 @@
             flex-shrink: 0;
         }
         .hero {
+            display: flex;
+            justify-content: center;
+            padding: 3rem 2rem;
+        }
+        .hero-card {
             text-align: center;
-            padding: 4rem 2rem 4rem;
-            background: rgba(10, 15, 24, 0.75);
-            backdrop-filter: blur(8px);
-            border-bottom: 1px solid var(--border);
+            max-width: 40rem;
+            padding: 3rem 3.5rem;
+            background: var(--card);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border);
+            border-radius: 16px;
         }
         .hero h1 {
             font-size: 3.5rem;
@@ -227,7 +234,7 @@
         }
         .card {
             background: var(--card);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px);
             border: 1px solid var(--border);
             border-radius: 12px;
             padding: 2rem;
@@ -275,13 +282,19 @@
             text-decoration: underline;
         }
         .footer {
+            display: flex;
+            justify-content: center;
+            padding: 2.5rem;
+        }
+        .footer-card {
             text-align: center;
             font-size: 0.9rem;
             color: #8b949e;
-            border-top: 1px solid var(--border);
-            padding: 2.5rem;
-            background: rgba(10, 15, 24, 0.7);
-            backdrop-filter: blur(8px);
+            padding: 1.2rem 2rem;
+            background: var(--card);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border);
+            border-radius: 12px;
         }
     </style>
 </head>
@@ -357,14 +370,16 @@
         </div>
 
         <section class="hero">
-            <h1>స్కెచ్‌బ్యాక్.</h1>
-            <p class="subtitle">మీ 3D ప్రపంచాన్ని బ్యాకప్ చేయండి -- మరియు దానిని మీ సొంతంగా ఉంచుకోండి.</p>
-            <a id="primary-download" href="https://github.com/Kuranes/3d-backup/releases/latest" class="btn-download">డౌన్‌లోడ్ చేసుకోండి. <span id="os-name">మీ ఆపరేటింగ్ సిస్టమ్.</span></a>
-            <div class="platform-links">
-                ఇంకా.
-                <a id="link-macos" href="https://github.com/Kuranes/3d-backup/releases/latest" target="_blank">macOS</a> |
-                <a id="link-windows" href="https://github.com/Kuranes/3d-backup/releases/latest" target="_blank">విండోస్</a> |
-                <a id="link-linux" href="https://github.com/Kuranes/3d-backup/releases/latest" target="_blank">లినక్స్</a>
+            <div class="hero-card">
+                <h1>స్కెచ్‌బ్యాక్.</h1>
+                <p class="subtitle">మీ 3D ప్రపంచాన్ని బ్యాకప్ చేయండి -- మరియు దానిని మీ సొంతంగా ఉంచుకోండి.</p>
+                <a id="primary-download" href="https://github.com/Kuranes/3d-backup/releases/latest" class="btn-download">డౌన్‌లోడ్ చేసుకోండి. <span id="os-name">మీ ఆపరేటింగ్ సిస్టమ్.</span></a>
+                <div class="platform-links">
+                    ఇంకా.
+                    <a id="link-macos" href="https://github.com/Kuranes/3d-backup/releases/latest" target="_blank">macOS</a> |
+                    <a id="link-windows" href="https://github.com/Kuranes/3d-backup/releases/latest" target="_blank">విండోస్</a> |
+                    <a id="link-linux" href="https://github.com/Kuranes/3d-backup/releases/latest" target="_blank">లినక్స్</a>
+                </div>
             </div>
         </section>
 
@@ -400,8 +415,10 @@
         </div>
 
         <div class="footer">
-            స్కెచ్‌బ్యాక్, స్కెచ్‌ఫ్యాబ్ లేదా ఎపిక్ గేమ్స్‌తో సంబంధం కలిగి లేదు.<br>
-            ఇది 3D సంఘం కోసం, సంఘం ద్వారా రూపొందించబడింది.
+            <div class="footer-card">
+                స్కెచ్‌బ్యాక్, స్కెచ్‌ఫ్యాబ్ లేదా ఎపిక్ గేమ్స్‌తో సంబంధం కలిగి లేదు.<br>
+                ఇది 3D సంఘం కోసం, సంఘం ద్వారా రూపొందించబడింది.
+            </div>
         </div>
     </div>
 
@@ -465,53 +482,83 @@
     </script>
 
     <script>
-        // Animated wave-grid background. Raw WebGL (not WebGPU): an
-        // explicit, deliberate exception for this one public page, where
-        // browser reach matters more than on the project's own native
-        // apps. No library (no three.js/CDN) -- small enough to hand-roll.
+        // Tron-style infinite wireframe grid with classic boid flocking.
+        // Raw WebGL (not WebGPU): an explicit, deliberate exception for
+        // this one public page, where browser reach matters more than on
+        // the project's own native apps. No library (no three.js/CDN) --
+        // small enough to hand-roll. The visitor's cursor is never hidden
+        // or captured -- it is only ray-cast onto the floor plane and
+        // marked with a red dot that the boids flock toward.
         (function () {
             var canvas = document.getElementById('wave-canvas');
             var gl = canvas.getContext('webgl2') || canvas.getContext('webgl');
             if (!gl) return; // no WebGL: canvas stays empty, page still works
 
-            var VERT_SRC = [
+            var VERT_GRID = [
                 'attribute vec3 aPosition;',
                 'uniform mat4 uProjection;',
                 'uniform mat4 uView;',
                 'uniform float uTime;',
-                'varying float vHeight;',
+                'uniform vec3 uEye;',
+                'varying float vFog;',
                 'void main() {',
                 '    vec3 pos = aPosition;',
-                '    float wave1 = sin(pos.x * 2.0 + uTime) * cos(pos.z * 1.5 + uTime * 0.7);',
-                '    float wave2 = sin(pos.z * 2.2 - uTime * 0.8) * cos(pos.x * 1.3 + uTime * 0.5);',
-                '    float wave3 = sin((pos.x + pos.z) * 1.8 + uTime * 1.2) * 0.5;',
-                '    float displacement = (wave1 * 0.6 + wave2 * 0.6 + wave3 * 0.3) * 1.2;',
-                '    pos.y += displacement;',
-                '    vHeight = displacement;',
+                '    pos.y += sin(pos.x * 0.5 + uTime * 0.6) * cos(pos.z * 0.4 + uTime * 0.4) * 0.15;',
                 '    gl_Position = uProjection * uView * vec4(pos, 1.0);',
+                '    vFog = distance(pos, uEye);',
                 '}'
             ].join('\n');
 
-            var FRAG_SURFACE_SRC = [
+            var FRAG_GRID = [
                 'precision mediump float;',
-                'varying float vHeight;',
+                'varying float vFog;',
                 'void main() {',
-                '    float t = clamp((vHeight + 1.5) / 3.0, 0.0, 1.0);',
-                '    vec3 colorLow = vec3(0.04, 0.10, 0.18);',
-                '    vec3 colorMid = vec3(0.20, 0.25, 0.55);',
-                '    vec3 colorHigh = vec3(0.39, 1.00, 0.85);',
-                '    vec3 color = mix(colorLow, colorMid, smoothstep(0.0, 0.5, t));',
-                '    color = mix(color, colorHigh, smoothstep(0.5, 1.0, t));',
-                '    float highlight = smoothstep(0.8, 1.0, t) * 0.4;',
-                '    color += highlight * vec3(0.8, 0.95, 1.0);',
-                '    gl_FragColor = vec4(color, 1.0);',
+                '    float a = 1.0 - smoothstep(8.0, 26.0, vFog);',
+                '    gl_FragColor = vec4(0.39, 1.0, 0.85, a * 0.5);',
                 '}'
             ].join('\n');
 
-            var FRAG_LINE_SRC = [
+            var VERT_BOID = [
+                'attribute vec3 aPosition;',
+                'attribute vec3 aNormal;',
+                'uniform mat4 uProjection;',
+                'uniform mat4 uView;',
+                'uniform mat4 uModel;',
+                'uniform vec3 uColor;',
+                'uniform vec3 uLightDir;',
+                'varying vec3 vColor;',
+                'void main() {',
+                '    vec4 worldPos = uModel * vec4(aPosition, 1.0);',
+                '    gl_Position = uProjection * uView * worldPos;',
+                '    vec3 worldNormal = normalize(mat3(uModel) * aNormal);',
+                '    float ndotl = max(dot(worldNormal, uLightDir), 0.0);',
+                '    vColor = uColor * (0.35 + 0.65 * ndotl);',
+                '}'
+            ].join('\n');
+
+            var FRAG_BOID = [
+                'precision mediump float;',
+                'varying vec3 vColor;',
+                'void main() {',
+                '    gl_FragColor = vec4(vColor, 1.0);',
+                '}'
+            ].join('\n');
+
+            var VERT_SPOT = [
+                'attribute vec2 aPosition;',
+                'uniform vec2 uWorldXZ;',
+                'uniform mat4 uProjection;',
+                'uniform mat4 uView;',
+                'void main() {',
+                '    vec4 worldPos = vec4(uWorldXZ.x + aPosition.x, 0.03, uWorldXZ.y + aPosition.y, 1.0);',
+                '    gl_Position = uProjection * uView * worldPos;',
+                '}'
+            ].join('\n');
+
+            var FRAG_SPOT = [
                 'precision mediump float;',
                 'void main() {',
-                '    gl_FragColor = vec4(0.39, 1.00, 0.85, 0.12);',
+                '    gl_FragColor = vec4(1.0, 0.16, 0.16, 0.9);',
                 '}'
             ].join('\n');
 
@@ -525,7 +572,6 @@
                 }
                 return s;
             }
-
             function link(vertSrc, fragSrc) {
                 var vs = compile(gl.VERTEX_SHADER, vertSrc);
                 var fs = compile(gl.FRAGMENT_SHADER, fragSrc);
@@ -538,67 +584,141 @@
                 return p;
             }
 
-            var surfaceProgram = link(VERT_SRC, FRAG_SURFACE_SRC);
-            var lineProgram = link(VERT_SRC, FRAG_LINE_SRC);
-            if (!surfaceProgram || !lineProgram) return;
+            var gridProgram = link(VERT_GRID, FRAG_GRID);
+            var boidProgram = link(VERT_BOID, FRAG_BOID);
+            var spotProgram = link(VERT_SPOT, FRAG_SPOT);
+            if (!gridProgram || !boidProgram || !spotProgram) return;
 
-            // Grid geometry: a flat plane in the XZ plane, displaced by the
-            // vertex shader. segments+1 vertices per side.
-            var WIDTH = 14, DEPTH = 14, SEGMENTS = 100;
-            var positions = [];
-            var triIndices = [];
-            var lineIndices = [];
+            // Wireframe grid on the XZ plane, gently displaced for a less
+            // clinical look, faded to nothing at distance so it reads as
+            // endless rather than a bounded slab.
+            var WIDTH = 44, DEPTH = 44, SEGMENTS = 54;
+            var gridPositions = [];
+            var gridLineIndices = [];
+            var stride = SEGMENTS + 1;
             for (var iz = 0; iz <= SEGMENTS; iz++) {
                 for (var ix = 0; ix <= SEGMENTS; ix++) {
                     var x = (ix / SEGMENTS - 0.5) * WIDTH;
                     var z = (iz / SEGMENTS - 0.5) * DEPTH;
-                    positions.push(x, 0, z);
+                    gridPositions.push(x, 0, z);
                 }
             }
-            var stride = SEGMENTS + 1;
-            for (iz = 0; iz < SEGMENTS; iz++) {
+            for (iz = 0; iz <= SEGMENTS; iz++) {
                 for (ix = 0; ix < SEGMENTS; ix++) {
                     var a = iz * stride + ix;
-                    var b = a + 1;
-                    var c = a + stride;
-                    var d = c + 1;
-                    triIndices.push(a, c, b, b, c, d);
-                    lineIndices.push(a, b, a, c);
+                    gridLineIndices.push(a, a + 1);
                 }
             }
-            // Trailing edge lines (right column + bottom row).
-            for (iz = 0; iz < SEGMENTS; iz++) {
-                var right = iz * stride + SEGMENTS;
-                lineIndices.push(right, right + stride);
-            }
-            for (ix = 0; ix < SEGMENTS; ix++) {
-                var bottom = SEGMENTS * stride + ix;
-                lineIndices.push(bottom, bottom + 1);
+            for (ix = 0; ix <= SEGMENTS; ix++) {
+                for (iz = 0; iz < SEGMENTS; iz++) {
+                    var b = iz * stride + ix;
+                    gridLineIndices.push(b, b + stride);
+                }
             }
 
-            var positionBuffer = gl.createBuffer();
-            gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
-            gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.STATIC_DRAW);
+            var gridPosBuffer = gl.createBuffer();
+            gl.bindBuffer(gl.ARRAY_BUFFER, gridPosBuffer);
+            gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(gridPositions), gl.STATIC_DRAW);
+            var gridIndexBuffer = gl.createBuffer();
+            gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, gridIndexBuffer);
+            gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(gridLineIndices), gl.STATIC_DRAW);
+            var gridLineCount = gridLineIndices.length;
 
-            var triIndexBuffer = gl.createBuffer();
-            gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, triIndexBuffer);
-            gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint32Array(triIndices), gl.STATIC_DRAW);
-
-            var lineIndexBuffer = gl.createBuffer();
-            gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, lineIndexBuffer);
-            gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint32Array(lineIndices), gl.STATIC_DRAW);
-
-            // gl.UNSIGNED_INT indices need the OES_element_index_uint
-            // extension on plain WebGL1 (always available on WebGL2).
-            var uintIndicesOk = !!gl.getExtension('OES_element_index_uint') || gl instanceof WebGL2RenderingContext;
-            var indexType = uintIndicesOk ? gl.UNSIGNED_INT : gl.UNSIGNED_SHORT;
-            if (!uintIndicesOk) {
-                // Fall back to 16-bit indices (grid small enough to fit).
-                gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, triIndexBuffer);
-                gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(triIndices), gl.STATIC_DRAW);
-                gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, lineIndexBuffer);
-                gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(lineIndices), gl.STATIC_DRAW);
+            // Boid meshes: the classic primitive set (sphere, cube, cone,
+            // torus), each boid picking one at spawn.
+            function pushFace(pos, nor, a, b, c, d) {
+                var ux = b[0] - a[0], uy = b[1] - a[1], uz = b[2] - a[2];
+                var vx = c[0] - a[0], vy = c[1] - a[1], vz = c[2] - a[2];
+                var nx = uy * vz - uz * vy, ny = uz * vx - ux * vz, nz = ux * vy - uy * vx;
+                var nl = Math.hypot(nx, ny, nz) || 1;
+                nx /= nl; ny /= nl; nz /= nl;
+                var verts = d ? [a, b, c, a, c, d] : [a, b, c];
+                for (var i = 0; i < verts.length; i++) {
+                    pos.push(verts[i][0], verts[i][1], verts[i][2]);
+                    nor.push(nx, ny, nz);
+                }
             }
+            function buildSphere() {
+                var stacks = 8, slices = 12, r = 0.26;
+                var pos = [], nor = [];
+                var ring = function (i) {
+                    var phi = i * Math.PI / stacks;
+                    return { s: Math.sin(phi), c: Math.cos(phi) };
+                };
+                for (var i = 0; i < stacks; i++) {
+                    var r0 = ring(i), r1 = ring(i + 1);
+                    for (var j = 0; j < slices; j++) {
+                        var t0 = j * 2 * Math.PI / slices, t1 = (j + 1) * 2 * Math.PI / slices;
+                        var a = [r0.s * Math.cos(t0) * r, r0.c * r, r0.s * Math.sin(t0) * r];
+                        var b = [r1.s * Math.cos(t0) * r, r1.c * r, r1.s * Math.sin(t0) * r];
+                        var c = [r1.s * Math.cos(t1) * r, r1.c * r, r1.s * Math.sin(t1) * r];
+                        var d = [r0.s * Math.cos(t1) * r, r0.c * r, r0.s * Math.sin(t1) * r];
+                        pushFace(pos, nor, a, b, c, d);
+                    }
+                }
+                return { pos: new Float32Array(pos), nor: new Float32Array(nor), count: pos.length / 3 };
+            }
+            function buildCube() {
+                var s = 0.2;
+                var pos = [], nor = [];
+                pushFace(pos, nor, [s, s, s], [s, -s, s], [s, -s, -s], [s, s, -s]);
+                pushFace(pos, nor, [-s, s, -s], [-s, -s, -s], [-s, -s, s], [-s, s, s]);
+                pushFace(pos, nor, [-s, s, -s], [s, s, -s], [s, s, s], [-s, s, s]);
+                pushFace(pos, nor, [-s, -s, s], [s, -s, s], [s, -s, -s], [-s, -s, -s]);
+                pushFace(pos, nor, [-s, s, s], [s, s, s], [s, -s, s], [-s, -s, s]);
+                pushFace(pos, nor, [s, s, -s], [-s, s, -s], [-s, -s, -s], [s, -s, -s]);
+                return { pos: new Float32Array(pos), nor: new Float32Array(nor), count: pos.length / 3 };
+            }
+            function buildCone() {
+                var r = 0.2, h = 0.42, segs = 12;
+                var pos = [], nor = [];
+                var tip = [0, h * 0.6, 0];
+                var base = [0, -h * 0.4, 0];
+                for (var i = 0; i < segs; i++) {
+                    var t0 = i * 2 * Math.PI / segs, t1 = (i + 1) * 2 * Math.PI / segs;
+                    var a = [Math.cos(t0) * r, -h * 0.4, Math.sin(t0) * r];
+                    var b = [Math.cos(t1) * r, -h * 0.4, Math.sin(t1) * r];
+                    pushFace(pos, nor, a, b, tip);
+                    pushFace(pos, nor, base, b, a);
+                }
+                return { pos: new Float32Array(pos), nor: new Float32Array(nor), count: pos.length / 3 };
+            }
+            function buildTorus() {
+                var R = 0.2, r = 0.07, segs = 12, ring = 8;
+                var pos = [], nor = [];
+                for (var i = 0; i < ring; i++) {
+                    var th0 = i * 2 * Math.PI / ring, th1 = (i + 1) * 2 * Math.PI / ring;
+                    for (var j = 0; j < segs; j++) {
+                        var ph0 = j * 2 * Math.PI / segs, ph1 = (j + 1) * 2 * Math.PI / segs;
+                        var p00 = [(R + r * Math.cos(ph0)) * Math.cos(th0), r * Math.sin(ph0), (R + r * Math.cos(ph0)) * Math.sin(th0)];
+                        var p01 = [(R + r * Math.cos(ph1)) * Math.cos(th0), r * Math.sin(ph1), (R + r * Math.cos(ph1)) * Math.sin(th0)];
+                        var p11 = [(R + r * Math.cos(ph1)) * Math.cos(th1), r * Math.sin(ph1), (R + r * Math.cos(ph1)) * Math.sin(th1)];
+                        var p10 = [(R + r * Math.cos(ph0)) * Math.cos(th1), r * Math.sin(ph0), (R + r * Math.cos(ph0)) * Math.sin(th1)];
+                        pushFace(pos, nor, p00, p01, p11, p10);
+                    }
+                }
+                return { pos: new Float32Array(pos), nor: new Float32Array(nor), count: pos.length / 3 };
+            }
+            var boidShapes = [buildSphere(), buildCube(), buildCone(), buildTorus()].map(function (mesh) {
+                var posBuffer = gl.createBuffer();
+                gl.bindBuffer(gl.ARRAY_BUFFER, posBuffer);
+                gl.bufferData(gl.ARRAY_BUFFER, mesh.pos, gl.STATIC_DRAW);
+                var norBuffer = gl.createBuffer();
+                gl.bindBuffer(gl.ARRAY_BUFFER, norBuffer);
+                gl.bufferData(gl.ARRAY_BUFFER, mesh.nor, gl.STATIC_DRAW);
+                return { posBuffer: posBuffer, norBuffer: norBuffer, count: mesh.count };
+            });
+
+            // Red cursor-projection marker (small circle fan).
+            var spotVerts = [0, 0];
+            var spotSegs = 20;
+            for (var si = 0; si <= spotSegs; si++) {
+                var ang = si * 2 * Math.PI / spotSegs;
+                spotVerts.push(Math.cos(ang) * 0.18, Math.sin(ang) * 0.18);
+            }
+            var spotBuffer = gl.createBuffer();
+            gl.bindBuffer(gl.ARRAY_BUFFER, spotBuffer);
+            gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(spotVerts), gl.STATIC_DRAW);
 
             // Minimal column-major mat4 helpers -- hand-written rather than
             // a vendored math library, small enough to justify it.
@@ -634,9 +754,57 @@
                     1
                 ]);
             }
+            function multiply(a, b) {
+                var out = new Float32Array(16);
+                for (var i = 0; i < 4; i++) {
+                    var a0 = a[i], a1 = a[i + 4], a2 = a[i + 8], a3 = a[i + 12];
+                    out[i] = a0 * b[0] + a1 * b[1] + a2 * b[2] + a3 * b[3];
+                    out[i + 4] = a0 * b[4] + a1 * b[5] + a2 * b[6] + a3 * b[7];
+                    out[i + 8] = a0 * b[8] + a1 * b[9] + a2 * b[10] + a3 * b[11];
+                    out[i + 12] = a0 * b[12] + a1 * b[13] + a2 * b[14] + a3 * b[15];
+                }
+                return out;
+            }
+            function invert(m) {
+                var inv = new Float32Array(16);
+                var m00 = m[0], m01 = m[1], m02 = m[2], m03 = m[3];
+                var m10 = m[4], m11 = m[5], m12 = m[6], m13 = m[7];
+                var m20 = m[8], m21 = m[9], m22 = m[10], m23 = m[11];
+                var m30 = m[12], m31 = m[13], m32 = m[14], m33 = m[15];
+                var b00 = m00 * m11 - m01 * m10, b01 = m00 * m12 - m02 * m10, b02 = m00 * m13 - m03 * m10;
+                var b03 = m01 * m12 - m02 * m11, b04 = m01 * m13 - m03 * m11, b05 = m02 * m13 - m03 * m12;
+                var b06 = m20 * m31 - m21 * m30, b07 = m20 * m32 - m22 * m30, b08 = m20 * m33 - m23 * m30;
+                var b09 = m21 * m32 - m22 * m31, b10 = m21 * m33 - m23 * m31, b11 = m22 * m33 - m23 * m32;
+                var det = b00 * b11 - b01 * b10 + b02 * b09 + b03 * b08 - b04 * b07 + b05 * b06;
+                if (Math.abs(det) < 1e-8) return null;
+                det = 1.0 / det;
+                inv[0] = (m11 * b11 - m12 * b10 + m13 * b09) * det;
+                inv[1] = (m02 * b10 - m01 * b11 - m03 * b09) * det;
+                inv[2] = (m31 * b05 - m32 * b04 + m33 * b03) * det;
+                inv[3] = (m22 * b04 - m21 * b05 - m23 * b03) * det;
+                inv[4] = (m12 * b08 - m10 * b11 - m13 * b07) * det;
+                inv[5] = (m00 * b11 - m02 * b08 + m03 * b07) * det;
+                inv[6] = (m32 * b02 - m30 * b05 - m33 * b01) * det;
+                inv[7] = (m20 * b05 - m22 * b02 + m23 * b01) * det;
+                inv[8] = (m10 * b10 - m11 * b08 + m13 * b06) * det;
+                inv[9] = (m01 * b08 - m00 * b10 - m03 * b06) * det;
+                inv[10] = (m30 * b04 - m31 * b02 + m33 * b00) * det;
+                inv[11] = (m21 * b02 - m20 * b04 - m23 * b00) * det;
+                inv[12] = (m11 * b07 - m10 * b09 - m12 * b06) * det;
+                inv[13] = (m00 * b09 - m01 * b07 + m02 * b06) * det;
+                inv[14] = (m31 * b01 - m30 * b03 - m32 * b00) * det;
+                inv[15] = (m20 * b03 - m21 * b01 + m22 * b00) * det;
+                return inv;
+            }
+            function translationMatrix(x, y, z) {
+                return new Float32Array([1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, x, y, z, 1]);
+            }
 
-            var viewMatrix = lookAt([0, 4, 9], [0, 0, 0], [0, 1, 0]);
-            var projMatrix = perspective(45 * Math.PI / 180, 1, 0.1, 1000);
+            var eye = [0, 4.6, 10];
+            var center = [0, 0, -4];
+            var up = [0, 1, 0];
+            var viewMatrix = lookAt(eye, center, up);
+            var projMatrix;
 
             function resize() {
                 var dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -647,34 +815,363 @@
                     canvas.height = h;
                 }
                 gl.viewport(0, 0, canvas.width, canvas.height);
-                projMatrix = perspective(45 * Math.PI / 180, canvas.width / canvas.height, 0.1, 1000);
+                projMatrix = perspective(50 * Math.PI / 180, canvas.width / canvas.height, 0.1, 100);
             }
             window.addEventListener('resize', resize);
             resize();
 
-            gl.enable(gl.DEPTH_TEST);
+            // Cursor ray-cast onto the floor plane (y = 0). The cursor is
+            // never hidden or captured -- this only adds a marker showing
+            // where it lands on the 3D floor.
+            var mouseInside = false;
+            var spotWorld = [0, 0];
+            var seekTarget = [0, 0.5, 0];
+
+            function screenToGroundPlane(nx, ny) {
+                var vpInv = invert(multiply(projMatrix, viewMatrix));
+                if (!vpInv) return null;
+                var points = [];
+                var clips = [[nx, ny, -1, 1], [nx, ny, 1, 1]];
+                for (var c = 0; c < 2; c++) {
+                    var clip = clips[c];
+                    var w = new Float32Array(4);
+                    for (var i = 0; i < 4; i++) {
+                        w[i] = vpInv[i] * clip[0] + vpInv[i + 4] * clip[1] + vpInv[i + 8] * clip[2] + vpInv[i + 12] * clip[3];
+                    }
+                    if (Math.abs(w[3]) < 1e-6) return null;
+                    points.push([w[0] / w[3], w[1] / w[3], w[2] / w[3]]);
+                }
+                var near = points[0], far = points[1];
+                var dx = far[0] - near[0], dy = far[1] - near[1], dz = far[2] - near[2];
+                if (Math.abs(dy) < 1e-6) return null;
+                var t = -near[1] / dy;
+                if (t <= 0) return null;
+                return [near[0] + t * dx, near[2] + t * dz];
+            }
+
+            window.addEventListener('mouseenter', function () { mouseInside = true; });
+            window.addEventListener('mouseleave', function () { mouseInside = false; });
+            window.addEventListener('mousemove', function (e) {
+                mouseInside = true;
+                var nx = (e.clientX / window.innerWidth) * 2 - 1;
+                var ny = -(e.clientY / window.innerHeight) * 2 + 1;
+                var hit = screenToGroundPlane(nx, ny);
+                if (hit) {
+                    spotWorld[0] = hit[0];
+                    spotWorld[1] = hit[1];
+                    seekTarget[0] = hit[0];
+                    seekTarget[1] = 0.6;
+                    seekTarget[2] = hit[1];
+                }
+            });
+
+            // Classic boid flocking: separation + alignment + cohesion,
+            // plus a seek force toward the cursor's floor projection.
+            var BOID_COUNT = 26;
+            var MAX_SPEED = 0.045;
+            var MAX_FORCE = 0.0009;
+            var NEIGHBOR_DIST = 3.0;
+            var SEPARATION_DIST = 1.3;
+            var MIN_CLEARANCE = 0.55;
+            var SEEK_W = 0.35;
+            var COHESION_W = 0.5;
+            var ALIGN_W = 0.6;
+            var SEP_W = 2.2;
+            var MAX_SEP_FORCE = 0.006;
+            var FRICTION = 0.995;
+
+            var palette = [
+                [1.0, 0.25, 0.35], [0.25, 1.0, 0.75], [0.3, 0.6, 1.0],
+                [1.0, 0.8, 0.15], [1.0, 0.3, 1.0], [0.4, 1.0, 0.3]
+            ];
+
+            var boids = [];
+            for (var bi = 0; bi < BOID_COUNT; bi++) {
+                var homeY = 0.6 + Math.random() * 3.2;
+                boids.push({
+                    pos: [(Math.random() - 0.5) * 10, homeY, -6 + Math.random() * 6],
+                    vel: [(Math.random() - 0.5) * 0.02, (Math.random() - 0.5) * 0.01, (Math.random() - 0.5) * 0.02],
+                    color: palette[bi % palette.length],
+                    shapeIdx: bi % boidShapes.length,
+                    homeY: homeY
+                });
+            }
+
+            // All flocking (seek/cohesion/alignment/separation) is 2D, on
+            // the ground plane only. Height is a fully separate layer (see
+            // updateAltitude) -- keeping it out of cohesion/alignment is
+            // what stops every boid from being dragged to one shared
+            // average height.
+            function steerTowardsXZ(boid, tx, tz, weight) {
+                var dx = tx - boid.pos[0], dz = tz - boid.pos[2];
+                var dist = Math.hypot(dx, dz) || 1e-6;
+                var desiredX = dx / dist * MAX_SPEED, desiredZ = dz / dist * MAX_SPEED;
+                return limit2D((desiredX - boid.vel[0]) * weight, (desiredZ - boid.vel[2]) * weight, MAX_FORCE);
+            }
+            function limit2D(x, z, max) {
+                var l = Math.hypot(x, z);
+                if (l > max) { var s = max / l; x *= s; z *= s; }
+                return [x, z];
+            }
+
+            // Set by explodeBoids() (the download-button click handler,
+            // below): while positive, boids ignore flocking entirely and
+            // fly ballistically outward. Once it reaches 0, normal
+            // seek/cohesion/alignment takes back over on its own, which is
+            // what makes them regroup afterward without any extra code.
+            var explodeFramesLeft = 0;
+            var EXPLODE_SPEED = 0.22;
+
+            function updateBoids() {
+                if (explodeFramesLeft > 0) {
+                    for (var e = 0; e < boids.length; e++) {
+                        var eb = boids[e];
+                        eb.vel[0] *= 0.97; eb.vel[1] *= 0.97; eb.vel[2] *= 0.97;
+                        eb.pos[0] += eb.vel[0]; eb.pos[1] += eb.vel[1]; eb.pos[2] += eb.vel[2];
+                        if (eb.pos[1] < 0.2) { eb.pos[1] = 0.2; eb.vel[1] *= -0.4; }
+                        if (eb.pos[1] > 6) { eb.pos[1] = 6; eb.vel[1] *= -0.4; }
+                    }
+                    resolveOverlaps();
+                    explodeFramesLeft--;
+                    if (explodeFramesLeft === 0) {
+                        for (var f = 0; f < boids.length; f++) {
+                            boids[f].homeY = Math.max(0.6, Math.min(4.2, boids[f].pos[1]));
+                        }
+                    }
+                    return;
+                }
+                for (var i = 0; i < boids.length; i++) {
+                    var b = boids[i];
+                    var cohesion = [0, 0], align = [0, 0], sep = [0, 0];
+                    var count = 0, sepCount = 0;
+                    for (var j = 0; j < boids.length; j++) {
+                        if (i === j) continue;
+                        var o = boids[j];
+                        var dx = o.pos[0] - b.pos[0], dz = o.pos[2] - b.pos[2];
+                        var dist = Math.hypot(dx, dz);
+                        if (dist < NEIGHBOR_DIST) {
+                            cohesion[0] += o.pos[0]; cohesion[1] += o.pos[2];
+                            align[0] += o.vel[0]; align[1] += o.vel[2];
+                            count++;
+                        }
+                        if (dist < SEPARATION_DIST && dist > 0.001) {
+                            // Inverse-square falloff: a near-touching
+                            // neighbor pushes far harder than one at the
+                            // edge of SEPARATION_DIST.
+                            var push = 1 / (dist * dist);
+                            sep[0] += (b.pos[0] - o.pos[0]) / dist * push;
+                            sep[1] += (b.pos[2] - o.pos[2]) / dist * push;
+                            sepCount++;
+                        }
+                    }
+                    var force = [0, 0, 0];
+                    if (mouseInside) {
+                        var seek = steerTowardsXZ(b, seekTarget[0], seekTarget[2], SEEK_W);
+                        force[0] += seek[0]; force[2] += seek[1];
+                    }
+                    if (count > 0) {
+                        var coh = steerTowardsXZ(b, cohesion[0] / count, cohesion[1] / count, COHESION_W);
+                        force[0] += coh[0]; force[2] += coh[1];
+                        var ax = align[0] / count, az = align[1] / count;
+                        var al = Math.hypot(ax, az) || 1e-6;
+                        var desiredX = ax / al * MAX_SPEED, desiredZ = az / al * MAX_SPEED;
+                        var alignSteer = limit2D((desiredX - b.vel[0]) * ALIGN_W, (desiredZ - b.vel[2]) * ALIGN_W, MAX_FORCE);
+                        force[0] += alignSteer[0]; force[2] += alignSteer[1];
+                    }
+                    if (sepCount > 0) {
+                        // Separation gets its own, much larger force budget
+                        // than seek/cohesion/align -- otherwise a tight
+                        // cursor-seeking crowd can always out-pull it and
+                        // the shapes end up sitting inside one another.
+                        var sepLen = Math.hypot(sep[0], sep[1]) || 1e-6;
+                        var sepX = sep[0] / sepLen * MAX_SPEED, sepZ = sep[1] / sepLen * MAX_SPEED;
+                        var sepSteer = limit2D((sepX - b.vel[0]) * SEP_W, (sepZ - b.vel[2]) * SEP_W, MAX_SEP_FORCE);
+                        force[0] += sepSteer[0]; force[2] += sepSteer[1];
+                    }
+                    force[0] += (Math.random() - 0.5) * 0.00025;
+                    force[2] += (Math.random() - 0.5) * 0.00025;
+
+                    if (b.pos[0] > 10) force[0] -= 0.015;
+                    if (b.pos[0] < -10) force[0] += 0.015;
+                    if (b.pos[2] > 4) force[2] -= 0.015;
+                    if (b.pos[2] < -13) force[2] += 0.015;
+
+                    b.vel[0] += force[0]; b.vel[2] += force[2];
+                    b.vel[0] *= FRICTION; b.vel[2] *= FRICTION;
+                    var speedXZ = Math.hypot(b.vel[0], b.vel[2]);
+                    if (speedXZ > MAX_SPEED) { var sc = MAX_SPEED / speedXZ; b.vel[0] *= sc; b.vel[2] *= sc; }
+                    b.pos[0] += b.vel[0]; b.pos[2] += b.vel[2];
+
+                    updateAltitude(b);
+                }
+                resolveOverlaps();
+            }
+
+            // Hard positional guarantee, on top of the separation force
+            // above: steering forces are gentle by design (so the flock
+            // still looks fluid), which alone lets a tight cursor-seeking
+            // crowd get pushed inside MIN_CLEARANCE. This pass shoves any
+            // still-overlapping pair directly apart in XZ, every frame, so
+            // the shapes never actually clip through each other.
+            function resolveOverlaps() {
+                for (var i = 0; i < boids.length; i++) {
+                    for (var j = i + 1; j < boids.length; j++) {
+                        var a = boids[i], b = boids[j];
+                        var dx = b.pos[0] - a.pos[0], dz = b.pos[2] - a.pos[2];
+                        var dist = Math.hypot(dx, dz);
+                        if (dist >= MIN_CLEARANCE) continue;
+                        var nx, nz;
+                        if (dist < 1e-4) {
+                            var ang = Math.random() * Math.PI * 2;
+                            nx = Math.cos(ang); nz = Math.sin(ang);
+                            dist = 0;
+                        } else {
+                            nx = dx / dist; nz = dz / dist;
+                        }
+                        var push = (MIN_CLEARANCE - dist) / 2;
+                        a.pos[0] -= nx * push; a.pos[2] -= nz * push;
+                        b.pos[0] += nx * push; b.pos[2] += nz * push;
+                    }
+                }
+            }
+
+            // Fired on the download button click: every boid gets a hard
+            // radial kick away from the flock's own center. updateBoids()
+            // then runs ballistic for a short window (explodeFramesLeft)
+            // before handing control back to normal flocking, which pulls
+            // the scattered shapes back into formation on its own.
+            function explodeBoids() {
+                var cx = 0, cy = 0, cz = 0, n = boids.length;
+                for (var i = 0; i < n; i++) {
+                    cx += boids[i].pos[0]; cy += boids[i].pos[1]; cz += boids[i].pos[2];
+                }
+                cx /= n; cy /= n; cz /= n;
+                for (var k = 0; k < n; k++) {
+                    var b = boids[k];
+                    var dx = b.pos[0] - cx, dy = b.pos[1] - cy, dz = b.pos[2] - cz;
+                    var len = Math.hypot(dx, dy, dz);
+                    if (len < 1e-3) {
+                        var theta = Math.random() * Math.PI * 2, phi = Math.acos(Math.random() * 2 - 1);
+                        dx = Math.sin(phi) * Math.cos(theta); dy = Math.cos(phi); dz = Math.sin(phi) * Math.sin(theta);
+                        len = 1;
+                    }
+                    var speed = EXPLODE_SPEED * (0.6 + Math.random() * 0.8);
+                    b.vel[0] = dx / len * speed;
+                    b.vel[1] = dy / len * speed + (Math.random() - 0.3) * speed * 0.5;
+                    b.vel[2] = dz / len * speed;
+                }
+                explodeFramesLeft = 45;
+            }
+
+            var downloadBtn = document.getElementById('primary-download');
+            if (downloadBtn) {
+                downloadBtn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    explodeBoids();
+                    var href = downloadBtn.href;
+                    setTimeout(function () { window.location.href = href; }, 700);
+                });
+            }
+
+            // Independent altitude layer: each boid's own home height drifts
+            // slowly (a lazy random walk), and a spring pulls it there. No
+            // coupling to other boids at all, so heights stay scattered
+            // instead of collapsing to the flock's average.
+            function updateAltitude(b) {
+                b.homeY += (Math.random() - 0.5) * 0.006;
+                if (b.homeY < 0.6) b.homeY = 0.6;
+                if (b.homeY > 4.2) b.homeY = 4.2;
+                var vy = b.vel[1] + (b.homeY - b.pos[1]) * 0.02 + (Math.random() - 0.5) * 0.0015;
+                vy *= FRICTION;
+                var maxVy = 0.03;
+                if (vy > maxVy) vy = maxVy;
+                if (vy < -maxVy) vy = -maxVy;
+                b.vel[1] = vy;
+                b.pos[1] += vy;
+            }
+
+            // Tumbles each primitive so its local "up" tracks the velocity
+            // direction -- a cube/cone/torus has no natural nose, so this
+            // reads as banking flight rather than a fixed-forward arrow.
+            function boidModelMatrix(b) {
+                var m = translationMatrix(b.pos[0], b.pos[1], b.pos[2]);
+                var speed = Math.hypot(b.vel[0], b.vel[1], b.vel[2]);
+                if (speed < 1e-5) return m;
+                var dx = b.vel[0] / speed, dy = b.vel[1] / speed, dz = b.vel[2] / speed;
+                var ux = 0, uy = 1, uz = 0;
+                var dot = ux * dx + uy * dy + uz * dz;
+                var axx = uy * dz - uz * dy, axy = uz * dx - ux * dz, axz = ux * dy - uy * dx;
+                var axLen = Math.hypot(axx, axy, axz);
+                if (axLen < 1e-5) return m;
+                axx /= axLen; axy /= axLen; axz /= axLen;
+                var angle = Math.acos(Math.max(-1, Math.min(1, dot)));
+                var s = Math.sin(angle), c = Math.cos(angle), t = 1 - c;
+                var rot = new Float32Array([
+                    t * axx * axx + c, t * axx * axy + s * axz, t * axx * axz - s * axy, 0,
+                    t * axx * axy - s * axz, t * axy * axy + c, t * axy * axz + s * axx, 0,
+                    t * axx * axz + s * axy, t * axy * axz - s * axx, t * axz * axz + c, 0,
+                    0, 0, 0, 1
+                ]);
+                return multiply(m, rot);
+            }
+
+            var lightDir = new Float32Array([0.35, 0.8, 0.45]);
             gl.enable(gl.BLEND);
             gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
 
-            function drawWith(program, indexBuffer, count, mode) {
-                gl.useProgram(program);
-                var aPosition = gl.getAttribLocation(program, 'aPosition');
-                gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
-                gl.enableVertexAttribArray(aPosition);
-                gl.vertexAttribPointer(aPosition, 3, gl.FLOAT, false, 0, 0);
-                gl.uniformMatrix4fv(gl.getUniformLocation(program, 'uProjection'), false, projMatrix);
-                gl.uniformMatrix4fv(gl.getUniformLocation(program, 'uView'), false, viewMatrix);
-                gl.uniform1f(gl.getUniformLocation(program, 'uTime'), performance.now() * 0.001);
-                gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, indexBuffer);
-                gl.drawElements(mode, count, indexType, 0);
-            }
-
             function frame() {
                 requestAnimationFrame(frame);
+                updateBoids();
+
                 gl.clearColor(0, 0, 0, 0);
                 gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
-                drawWith(surfaceProgram, triIndexBuffer, triIndices.length, gl.TRIANGLES);
-                drawWith(lineProgram, lineIndexBuffer, lineIndices.length, gl.LINES);
+
+                gl.disable(gl.DEPTH_TEST);
+                gl.useProgram(gridProgram);
+                var aPosGrid = gl.getAttribLocation(gridProgram, 'aPosition');
+                gl.bindBuffer(gl.ARRAY_BUFFER, gridPosBuffer);
+                gl.enableVertexAttribArray(aPosGrid);
+                gl.vertexAttribPointer(aPosGrid, 3, gl.FLOAT, false, 0, 0);
+                gl.uniformMatrix4fv(gl.getUniformLocation(gridProgram, 'uProjection'), false, projMatrix);
+                gl.uniformMatrix4fv(gl.getUniformLocation(gridProgram, 'uView'), false, viewMatrix);
+                gl.uniform1f(gl.getUniformLocation(gridProgram, 'uTime'), performance.now() * 0.001);
+                gl.uniform3f(gl.getUniformLocation(gridProgram, 'uEye'), eye[0], eye[1], eye[2]);
+                gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, gridIndexBuffer);
+                gl.drawElements(gl.LINES, gridLineCount, gl.UNSIGNED_SHORT, 0);
+
+                if (mouseInside) {
+                    gl.useProgram(spotProgram);
+                    var aPosSpot = gl.getAttribLocation(spotProgram, 'aPosition');
+                    gl.bindBuffer(gl.ARRAY_BUFFER, spotBuffer);
+                    gl.enableVertexAttribArray(aPosSpot);
+                    gl.vertexAttribPointer(aPosSpot, 2, gl.FLOAT, false, 0, 0);
+                    gl.uniformMatrix4fv(gl.getUniformLocation(spotProgram, 'uProjection'), false, projMatrix);
+                    gl.uniformMatrix4fv(gl.getUniformLocation(spotProgram, 'uView'), false, viewMatrix);
+                    gl.uniform2f(gl.getUniformLocation(spotProgram, 'uWorldXZ'), spotWorld[0], spotWorld[1]);
+                    gl.drawArrays(gl.TRIANGLE_FAN, 0, spotVerts.length / 2);
+                }
+
+                gl.enable(gl.DEPTH_TEST);
+                gl.useProgram(boidProgram);
+                var aPosBoid = gl.getAttribLocation(boidProgram, 'aPosition');
+                var aNorBoid = gl.getAttribLocation(boidProgram, 'aNormal');
+                gl.uniformMatrix4fv(gl.getUniformLocation(boidProgram, 'uProjection'), false, projMatrix);
+                gl.uniformMatrix4fv(gl.getUniformLocation(boidProgram, 'uView'), false, viewMatrix);
+                gl.uniform3fv(gl.getUniformLocation(boidProgram, 'uLightDir'), lightDir);
+                var uModel = gl.getUniformLocation(boidProgram, 'uModel');
+                var uColor = gl.getUniformLocation(boidProgram, 'uColor');
+                for (var k = 0; k < boids.length; k++) {
+                    var shape = boidShapes[boids[k].shapeIdx];
+                    gl.bindBuffer(gl.ARRAY_BUFFER, shape.posBuffer);
+                    gl.enableVertexAttribArray(aPosBoid);
+                    gl.vertexAttribPointer(aPosBoid, 3, gl.FLOAT, false, 0, 0);
+                    gl.bindBuffer(gl.ARRAY_BUFFER, shape.norBuffer);
+                    gl.enableVertexAttribArray(aNorBoid);
+                    gl.vertexAttribPointer(aNorBoid, 3, gl.FLOAT, false, 0, 0);
+                    gl.uniformMatrix4fv(uModel, false, boidModelMatrix(boids[k]));
+                    gl.uniform3fv(uColor, boids[k].color);
+                    gl.drawArrays(gl.TRIANGLES, 0, shape.count);
+                }
             }
             requestAnimationFrame(frame);
         })();
