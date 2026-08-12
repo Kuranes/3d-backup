@@ -110,6 +110,17 @@
             text-align: right;
             padding: 0.5rem 1rem;
         }
+        .docs-link {
+            display: inline-block;
+            margin-right: 0.8rem;
+            padding: 0.5rem 0;
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .docs-link:hover {
+            color: var(--accent);
+        }
         .lang-switch {
             display: inline-block;
             position: relative;
@@ -303,68 +314,69 @@
 
     <div class="content">
         <div class="lang-switch-bar">
+            <a class="docs-link" href="/3d-backup/docs/ml/">Docs</a>
             <details class="lang-switch">
                 <summary>
-                    <svg class="flag-icon" aria-hidden="true"><use href="/flags.svg#flag-in"/></svg>
+                    <svg class="flag-icon" aria-hidden="true"><use href="/3d-backup/flags.svg#flag-in"/></svg>
                     മലയാളം
                 </summary>
                 <ul>
-                <li><a href="/ar/" hreflang="ar"><svg class="flag-icon" aria-hidden="true"><use href="/flags.svg#flag-sa"/></svg> العربية</a></li>
-                <li><a href="/az/" hreflang="az"><svg class="flag-icon" aria-hidden="true"><use href="/flags.svg#flag-az"/></svg> Azərbaycan</a></li>
-                <li><a href="/be/" hreflang="be"><svg class="flag-icon" aria-hidden="true"><use href="/flags.svg#flag-by"/></svg> Беларуская</a></li>
-                <li><a href="/bg/" hreflang="bg"><svg class="flag-icon" aria-hidden="true"><use href="/flags.svg#flag-bg"/></svg> Български</a></li>
-                <li><a href="/bn/" hreflang="bn"><svg class="flag-icon" aria-hidden="true"><use href="/flags.svg#flag-bd"/></svg> বাংলা</a></li>
-                <li><a href="/cs/" hreflang="cs"><svg class="flag-icon" aria-hidden="true"><use href="/flags.svg#flag-cz"/></svg> Čeština</a></li>
-                <li><a href="/da/" hreflang="da"><svg class="flag-icon" aria-hidden="true"><use href="/flags.svg#flag-dk"/></svg> Dansk</a></li>
-                <li><a href="/de/" hreflang="de"><svg class="flag-icon" aria-hidden="true"><use href="/flags.svg#flag-de"/></svg> Deutsch</a></li>
-                <li><a href="/el/" hreflang="el"><svg class="flag-icon" aria-hidden="true"><use href="/flags.svg#flag-gr"/></svg> Ελληνικά</a></li>
-                <li><a href="/" hreflang="en"><svg class="flag-icon" aria-hidden="true"><use href="/flags.svg#flag-gb"/></svg> English</a></li>
-                <li><a href="/es/" hreflang="es"><svg class="flag-icon" aria-hidden="true"><use href="/flags.svg#flag-es"/></svg> Español</a></li>
-                <li><a href="/fa/" hreflang="fa"><svg class="flag-icon" aria-hidden="true"><use href="/flags.svg#flag-ir"/></svg> فارسی</a></li>
-                <li><a href="/fi/" hreflang="fi"><svg class="flag-icon" aria-hidden="true"><use href="/flags.svg#flag-fi"/></svg> Suomi</a></li>
-                <li><a href="/fr/" hreflang="fr"><svg class="flag-icon" aria-hidden="true"><use href="/flags.svg#flag-fr"/></svg> Français</a></li>
-                <li><a href="/gu/" hreflang="gu"><svg class="flag-icon" aria-hidden="true"><use href="/flags.svg#flag-in"/></svg> ગુજરાતી</a></li>
-                <li><a href="/he/" hreflang="he"><svg class="flag-icon" aria-hidden="true"><use href="/flags.svg#flag-il"/></svg> עברית</a></li>
-                <li><a href="/hi/" hreflang="hi"><svg class="flag-icon" aria-hidden="true"><use href="/flags.svg#flag-in"/></svg> हिन्दी</a></li>
-                <li><a href="/hr/" hreflang="hr"><svg class="flag-icon" aria-hidden="true"><use href="/flags.svg#flag-hr"/></svg> Hrvatski</a></li>
-                <li><a href="/hu/" hreflang="hu"><svg class="flag-icon" aria-hidden="true"><use href="/flags.svg#flag-hu"/></svg> Magyar</a></li>
-                <li><a href="/hy/" hreflang="hy"><svg class="flag-icon" aria-hidden="true"><use href="/flags.svg#flag-am"/></svg> Հայերեն</a></li>
-                <li><a href="/id/" hreflang="id"><svg class="flag-icon" aria-hidden="true"><use href="/flags.svg#flag-id"/></svg> Bahasa Indonesia</a></li>
-                <li><a href="/is/" hreflang="is"><svg class="flag-icon" aria-hidden="true"><use href="/flags.svg#flag-is"/></svg> Íslenska</a></li>
-                <li><a href="/it/" hreflang="it"><svg class="flag-icon" aria-hidden="true"><use href="/flags.svg#flag-it"/></svg> Italiano</a></li>
-                <li><a href="/ja/" hreflang="ja"><svg class="flag-icon" aria-hidden="true"><use href="/flags.svg#flag-jp"/></svg> 日本語</a></li>
-                <li><a href="/ka/" hreflang="ka"><svg class="flag-icon" aria-hidden="true"><use href="/flags.svg#flag-ge"/></svg> ქართული</a></li>
-                <li><a href="/kk/" hreflang="kk"><svg class="flag-icon" aria-hidden="true"><use href="/flags.svg#flag-kz"/></svg> Қазақша</a></li>
-                <li><a href="/km/" hreflang="km"><svg class="flag-icon" aria-hidden="true"><use href="/flags.svg#flag-kh"/></svg> ភាសាខ្មែរ</a></li>
-                <li><a href="/kn/" hreflang="kn"><svg class="flag-icon" aria-hidden="true"><use href="/flags.svg#flag-in"/></svg> ಕನ್ನಡ</a></li>
-                <li><a href="/ko/" hreflang="ko"><svg class="flag-icon" aria-hidden="true"><use href="/flags.svg#flag-kr"/></svg> 한국어</a></li>
-                <li><a href="/lo/" hreflang="lo"><svg class="flag-icon" aria-hidden="true"><use href="/flags.svg#flag-la"/></svg> ລາວ</a></li>
-                <li><a href="/ml/" hreflang="ml"><svg class="flag-icon" aria-hidden="true"><use href="/flags.svg#flag-in"/></svg> മലയാളം</a></li>
-                <li><a href="/mr/" hreflang="mr"><svg class="flag-icon" aria-hidden="true"><use href="/flags.svg#flag-in"/></svg> मराठी</a></li>
-                <li><a href="/ms/" hreflang="ms"><svg class="flag-icon" aria-hidden="true"><use href="/flags.svg#flag-my"/></svg> Bahasa Melayu</a></li>
-                <li><a href="/my/" hreflang="my"><svg class="flag-icon" aria-hidden="true"><use href="/flags.svg#flag-mm"/></svg> မြန်မာဘာသာ</a></li>
-                <li><a href="/nl/" hreflang="nl"><svg class="flag-icon" aria-hidden="true"><use href="/flags.svg#flag-nl"/></svg> Nederlands</a></li>
-                <li><a href="/no/" hreflang="no"><svg class="flag-icon" aria-hidden="true"><use href="/flags.svg#flag-no"/></svg> Norsk</a></li>
-                <li><a href="/pa/" hreflang="pa"><svg class="flag-icon" aria-hidden="true"><use href="/flags.svg#flag-in"/></svg> ਪੰਜਾਬੀ</a></li>
-                <li><a href="/pl/" hreflang="pl"><svg class="flag-icon" aria-hidden="true"><use href="/flags.svg#flag-pl"/></svg> Polski</a></li>
-                <li><a href="/pt/" hreflang="pt"><svg class="flag-icon" aria-hidden="true"><use href="/flags.svg#flag-pt"/></svg> Português</a></li>
-                <li><a href="/pt-BR/" hreflang="pt-BR"><svg class="flag-icon" aria-hidden="true"><use href="/flags.svg#flag-br"/></svg> Português (Brasil)</a></li>
-                <li><a href="/ro/" hreflang="ro"><svg class="flag-icon" aria-hidden="true"><use href="/flags.svg#flag-ro"/></svg> Română</a></li>
-                <li><a href="/ru/" hreflang="ru"><svg class="flag-icon" aria-hidden="true"><use href="/flags.svg#flag-ru"/></svg> Русский</a></li>
-                <li><a href="/sk/" hreflang="sk"><svg class="flag-icon" aria-hidden="true"><use href="/flags.svg#flag-sk"/></svg> Slovenčina</a></li>
-                <li><a href="/sl/" hreflang="sl"><svg class="flag-icon" aria-hidden="true"><use href="/flags.svg#flag-si"/></svg> Slovenščina</a></li>
-                <li><a href="/sr/" hreflang="sr"><svg class="flag-icon" aria-hidden="true"><use href="/flags.svg#flag-rs"/></svg> Српски</a></li>
-                <li><a href="/sv/" hreflang="sv"><svg class="flag-icon" aria-hidden="true"><use href="/flags.svg#flag-se"/></svg> Svenska</a></li>
-                <li><a href="/ta/" hreflang="ta"><svg class="flag-icon" aria-hidden="true"><use href="/flags.svg#flag-in"/></svg> தமிழ்</a></li>
-                <li><a href="/te/" hreflang="te"><svg class="flag-icon" aria-hidden="true"><use href="/flags.svg#flag-in"/></svg> తెలుగు</a></li>
-                <li><a href="/th/" hreflang="th"><svg class="flag-icon" aria-hidden="true"><use href="/flags.svg#flag-th"/></svg> ไทย</a></li>
-                <li><a href="/tl/" hreflang="tl"><svg class="flag-icon" aria-hidden="true"><use href="/flags.svg#flag-ph"/></svg> Filipino</a></li>
-                <li><a href="/tr/" hreflang="tr"><svg class="flag-icon" aria-hidden="true"><use href="/flags.svg#flag-tr"/></svg> Türkçe</a></li>
-                <li><a href="/uk/" hreflang="uk"><svg class="flag-icon" aria-hidden="true"><use href="/flags.svg#flag-ua"/></svg> Українська</a></li>
-                <li><a href="/ur/" hreflang="ur"><svg class="flag-icon" aria-hidden="true"><use href="/flags.svg#flag-pk"/></svg> اردو</a></li>
-                <li><a href="/vi/" hreflang="vi"><svg class="flag-icon" aria-hidden="true"><use href="/flags.svg#flag-vn"/></svg> Tiếng Việt</a></li>
-                <li><a href="/zh-Hans/" hreflang="zh-Hans"><svg class="flag-icon" aria-hidden="true"><use href="/flags.svg#flag-cn"/></svg> 简体中文</a></li>
-                <li><a href="/zh-Hant/" hreflang="zh-Hant"><svg class="flag-icon" aria-hidden="true"><use href="/flags.svg#flag-tw"/></svg> 繁體中文</a></li>
+                <li><a href="/3d-backup/ar/" hreflang="ar"><svg class="flag-icon" aria-hidden="true"><use href="/3d-backup/flags.svg#flag-sa"/></svg> العربية</a></li>
+                <li><a href="/3d-backup/az/" hreflang="az"><svg class="flag-icon" aria-hidden="true"><use href="/3d-backup/flags.svg#flag-az"/></svg> Azərbaycan</a></li>
+                <li><a href="/3d-backup/be/" hreflang="be"><svg class="flag-icon" aria-hidden="true"><use href="/3d-backup/flags.svg#flag-by"/></svg> Беларуская</a></li>
+                <li><a href="/3d-backup/bg/" hreflang="bg"><svg class="flag-icon" aria-hidden="true"><use href="/3d-backup/flags.svg#flag-bg"/></svg> Български</a></li>
+                <li><a href="/3d-backup/bn/" hreflang="bn"><svg class="flag-icon" aria-hidden="true"><use href="/3d-backup/flags.svg#flag-bd"/></svg> বাংলা</a></li>
+                <li><a href="/3d-backup/cs/" hreflang="cs"><svg class="flag-icon" aria-hidden="true"><use href="/3d-backup/flags.svg#flag-cz"/></svg> Čeština</a></li>
+                <li><a href="/3d-backup/da/" hreflang="da"><svg class="flag-icon" aria-hidden="true"><use href="/3d-backup/flags.svg#flag-dk"/></svg> Dansk</a></li>
+                <li><a href="/3d-backup/de/" hreflang="de"><svg class="flag-icon" aria-hidden="true"><use href="/3d-backup/flags.svg#flag-de"/></svg> Deutsch</a></li>
+                <li><a href="/3d-backup/el/" hreflang="el"><svg class="flag-icon" aria-hidden="true"><use href="/3d-backup/flags.svg#flag-gr"/></svg> Ελληνικά</a></li>
+                <li><a href="/3d-backup/" hreflang="en"><svg class="flag-icon" aria-hidden="true"><use href="/3d-backup/flags.svg#flag-gb"/></svg> English</a></li>
+                <li><a href="/3d-backup/es/" hreflang="es"><svg class="flag-icon" aria-hidden="true"><use href="/3d-backup/flags.svg#flag-es"/></svg> Español</a></li>
+                <li><a href="/3d-backup/fa/" hreflang="fa"><svg class="flag-icon" aria-hidden="true"><use href="/3d-backup/flags.svg#flag-ir"/></svg> فارسی</a></li>
+                <li><a href="/3d-backup/fi/" hreflang="fi"><svg class="flag-icon" aria-hidden="true"><use href="/3d-backup/flags.svg#flag-fi"/></svg> Suomi</a></li>
+                <li><a href="/3d-backup/fr/" hreflang="fr"><svg class="flag-icon" aria-hidden="true"><use href="/3d-backup/flags.svg#flag-fr"/></svg> Français</a></li>
+                <li><a href="/3d-backup/gu/" hreflang="gu"><svg class="flag-icon" aria-hidden="true"><use href="/3d-backup/flags.svg#flag-in"/></svg> ગુજરાતી</a></li>
+                <li><a href="/3d-backup/he/" hreflang="he"><svg class="flag-icon" aria-hidden="true"><use href="/3d-backup/flags.svg#flag-il"/></svg> עברית</a></li>
+                <li><a href="/3d-backup/hi/" hreflang="hi"><svg class="flag-icon" aria-hidden="true"><use href="/3d-backup/flags.svg#flag-in"/></svg> हिन्दी</a></li>
+                <li><a href="/3d-backup/hr/" hreflang="hr"><svg class="flag-icon" aria-hidden="true"><use href="/3d-backup/flags.svg#flag-hr"/></svg> Hrvatski</a></li>
+                <li><a href="/3d-backup/hu/" hreflang="hu"><svg class="flag-icon" aria-hidden="true"><use href="/3d-backup/flags.svg#flag-hu"/></svg> Magyar</a></li>
+                <li><a href="/3d-backup/hy/" hreflang="hy"><svg class="flag-icon" aria-hidden="true"><use href="/3d-backup/flags.svg#flag-am"/></svg> Հայերեն</a></li>
+                <li><a href="/3d-backup/id/" hreflang="id"><svg class="flag-icon" aria-hidden="true"><use href="/3d-backup/flags.svg#flag-id"/></svg> Bahasa Indonesia</a></li>
+                <li><a href="/3d-backup/is/" hreflang="is"><svg class="flag-icon" aria-hidden="true"><use href="/3d-backup/flags.svg#flag-is"/></svg> Íslenska</a></li>
+                <li><a href="/3d-backup/it/" hreflang="it"><svg class="flag-icon" aria-hidden="true"><use href="/3d-backup/flags.svg#flag-it"/></svg> Italiano</a></li>
+                <li><a href="/3d-backup/ja/" hreflang="ja"><svg class="flag-icon" aria-hidden="true"><use href="/3d-backup/flags.svg#flag-jp"/></svg> 日本語</a></li>
+                <li><a href="/3d-backup/ka/" hreflang="ka"><svg class="flag-icon" aria-hidden="true"><use href="/3d-backup/flags.svg#flag-ge"/></svg> ქართული</a></li>
+                <li><a href="/3d-backup/kk/" hreflang="kk"><svg class="flag-icon" aria-hidden="true"><use href="/3d-backup/flags.svg#flag-kz"/></svg> Қазақша</a></li>
+                <li><a href="/3d-backup/km/" hreflang="km"><svg class="flag-icon" aria-hidden="true"><use href="/3d-backup/flags.svg#flag-kh"/></svg> ភាសាខ្មែរ</a></li>
+                <li><a href="/3d-backup/kn/" hreflang="kn"><svg class="flag-icon" aria-hidden="true"><use href="/3d-backup/flags.svg#flag-in"/></svg> ಕನ್ನಡ</a></li>
+                <li><a href="/3d-backup/ko/" hreflang="ko"><svg class="flag-icon" aria-hidden="true"><use href="/3d-backup/flags.svg#flag-kr"/></svg> 한국어</a></li>
+                <li><a href="/3d-backup/lo/" hreflang="lo"><svg class="flag-icon" aria-hidden="true"><use href="/3d-backup/flags.svg#flag-la"/></svg> ລາວ</a></li>
+                <li><a href="/3d-backup/ml/" hreflang="ml"><svg class="flag-icon" aria-hidden="true"><use href="/3d-backup/flags.svg#flag-in"/></svg> മലയാളം</a></li>
+                <li><a href="/3d-backup/mr/" hreflang="mr"><svg class="flag-icon" aria-hidden="true"><use href="/3d-backup/flags.svg#flag-in"/></svg> मराठी</a></li>
+                <li><a href="/3d-backup/ms/" hreflang="ms"><svg class="flag-icon" aria-hidden="true"><use href="/3d-backup/flags.svg#flag-my"/></svg> Bahasa Melayu</a></li>
+                <li><a href="/3d-backup/my/" hreflang="my"><svg class="flag-icon" aria-hidden="true"><use href="/3d-backup/flags.svg#flag-mm"/></svg> မြန်မာဘာသာ</a></li>
+                <li><a href="/3d-backup/nl/" hreflang="nl"><svg class="flag-icon" aria-hidden="true"><use href="/3d-backup/flags.svg#flag-nl"/></svg> Nederlands</a></li>
+                <li><a href="/3d-backup/no/" hreflang="no"><svg class="flag-icon" aria-hidden="true"><use href="/3d-backup/flags.svg#flag-no"/></svg> Norsk</a></li>
+                <li><a href="/3d-backup/pa/" hreflang="pa"><svg class="flag-icon" aria-hidden="true"><use href="/3d-backup/flags.svg#flag-in"/></svg> ਪੰਜਾਬੀ</a></li>
+                <li><a href="/3d-backup/pl/" hreflang="pl"><svg class="flag-icon" aria-hidden="true"><use href="/3d-backup/flags.svg#flag-pl"/></svg> Polski</a></li>
+                <li><a href="/3d-backup/pt/" hreflang="pt"><svg class="flag-icon" aria-hidden="true"><use href="/3d-backup/flags.svg#flag-pt"/></svg> Português</a></li>
+                <li><a href="/3d-backup/pt-BR/" hreflang="pt-BR"><svg class="flag-icon" aria-hidden="true"><use href="/3d-backup/flags.svg#flag-br"/></svg> Português (Brasil)</a></li>
+                <li><a href="/3d-backup/ro/" hreflang="ro"><svg class="flag-icon" aria-hidden="true"><use href="/3d-backup/flags.svg#flag-ro"/></svg> Română</a></li>
+                <li><a href="/3d-backup/ru/" hreflang="ru"><svg class="flag-icon" aria-hidden="true"><use href="/3d-backup/flags.svg#flag-ru"/></svg> Русский</a></li>
+                <li><a href="/3d-backup/sk/" hreflang="sk"><svg class="flag-icon" aria-hidden="true"><use href="/3d-backup/flags.svg#flag-sk"/></svg> Slovenčina</a></li>
+                <li><a href="/3d-backup/sl/" hreflang="sl"><svg class="flag-icon" aria-hidden="true"><use href="/3d-backup/flags.svg#flag-si"/></svg> Slovenščina</a></li>
+                <li><a href="/3d-backup/sr/" hreflang="sr"><svg class="flag-icon" aria-hidden="true"><use href="/3d-backup/flags.svg#flag-rs"/></svg> Српски</a></li>
+                <li><a href="/3d-backup/sv/" hreflang="sv"><svg class="flag-icon" aria-hidden="true"><use href="/3d-backup/flags.svg#flag-se"/></svg> Svenska</a></li>
+                <li><a href="/3d-backup/ta/" hreflang="ta"><svg class="flag-icon" aria-hidden="true"><use href="/3d-backup/flags.svg#flag-in"/></svg> தமிழ்</a></li>
+                <li><a href="/3d-backup/te/" hreflang="te"><svg class="flag-icon" aria-hidden="true"><use href="/3d-backup/flags.svg#flag-in"/></svg> తెలుగు</a></li>
+                <li><a href="/3d-backup/th/" hreflang="th"><svg class="flag-icon" aria-hidden="true"><use href="/3d-backup/flags.svg#flag-th"/></svg> ไทย</a></li>
+                <li><a href="/3d-backup/tl/" hreflang="tl"><svg class="flag-icon" aria-hidden="true"><use href="/3d-backup/flags.svg#flag-ph"/></svg> Filipino</a></li>
+                <li><a href="/3d-backup/tr/" hreflang="tr"><svg class="flag-icon" aria-hidden="true"><use href="/3d-backup/flags.svg#flag-tr"/></svg> Türkçe</a></li>
+                <li><a href="/3d-backup/uk/" hreflang="uk"><svg class="flag-icon" aria-hidden="true"><use href="/3d-backup/flags.svg#flag-ua"/></svg> Українська</a></li>
+                <li><a href="/3d-backup/ur/" hreflang="ur"><svg class="flag-icon" aria-hidden="true"><use href="/3d-backup/flags.svg#flag-pk"/></svg> اردو</a></li>
+                <li><a href="/3d-backup/vi/" hreflang="vi"><svg class="flag-icon" aria-hidden="true"><use href="/3d-backup/flags.svg#flag-vn"/></svg> Tiếng Việt</a></li>
+                <li><a href="/3d-backup/zh-Hans/" hreflang="zh-Hans"><svg class="flag-icon" aria-hidden="true"><use href="/3d-backup/flags.svg#flag-cn"/></svg> 简体中文</a></li>
+                <li><a href="/3d-backup/zh-Hant/" hreflang="zh-Hant"><svg class="flag-icon" aria-hidden="true"><use href="/3d-backup/flags.svg#flag-tw"/></svg> 繁體中文</a></li>
                 </ul>
             </details>
         </div>
